@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AgeController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -50,6 +51,15 @@ Route::get('banco/{n?}', function($n = 8){
 Route::get('/signin',[AuthController::class, 'SignIn']);
 
 Route::post('/checkSignIn', [AuthController::class, 'checkSignIn']);
+
+// Route::get('/age', function(){
+//     return view('age.age');
+// });
+Route::get('/age',[AgeController::class, 'Age']);
+Route::get('/checkAge',function(){
+    return redirect()->route('product.index');
+})->middleware('CheckAge');
+
 
 Route::fallback(function(){
     return view('errors.404');
