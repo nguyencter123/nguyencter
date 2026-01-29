@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AgeController;
 use App\Http\Controllers\AuthController;
+use App\Http\Middleware\CheckAge;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -24,7 +25,7 @@ Route::get('/nct', function (){
 //     return $id;
 // });
 
-Route::prefix('product')->name('product.')->group(function(){
+Route::prefix('product')->name('product.')->middleware('CheckAge')->group(function(){
 
     Route::get('/', function(){
     return view('product.index');
