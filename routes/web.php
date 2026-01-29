@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -45,6 +46,10 @@ Route::get('banco/{n?}', function($n = 8){
    
     return view('banco', ['n' => $n]);
 });
+
+Route::get('/signin',[AuthController::class, 'SignIn']);
+
+Route::post('/checkSignIn', [AuthController::class, 'checkSignIn']);
 
 Route::fallback(function(){
     return view('errors.404');
