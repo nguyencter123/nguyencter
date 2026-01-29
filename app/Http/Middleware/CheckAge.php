@@ -15,7 +15,9 @@ class CheckAge
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if($request->age < 18){
+        $age = session('user_age');
+        
+        if($age < 18){
             return response("Khong duoc phep truy cap");
         }
         return $next($request);

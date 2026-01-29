@@ -56,6 +56,7 @@ Route::post('/checkSignIn', [AuthController::class, 'checkSignIn']);
 //     return view('age.age');
 // });
 Route::get('/age',[AgeController::class, 'Age']);
+Route::post('/processing', [AgeController::class, 'Processing']);
 Route::get('/checkAge',function(){
     return redirect()->route('product.index');
 })->middleware('CheckAge');

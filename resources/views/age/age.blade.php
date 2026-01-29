@@ -14,7 +14,8 @@
                         <h5 class="mb-0">Xác thực độ tuổi</h5>
                     </div>
                     <div class="card-body">
-                        <form action="/checkAge" method="GET">
+                        <form action="/processing" method="POST">
+                            @csrf
                             <div class="mb-3">
                                 <label for="age" class="form-label">Nhập tuổi của bạn:</label>
                                 <input type="number" name="age" id="age" class="form-control"  required>
